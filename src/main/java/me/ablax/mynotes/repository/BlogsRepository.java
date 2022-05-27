@@ -1,7 +1,6 @@
 package me.ablax.mynotes.repository;
 
 import me.ablax.mynotes.entity.Blog;
-
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

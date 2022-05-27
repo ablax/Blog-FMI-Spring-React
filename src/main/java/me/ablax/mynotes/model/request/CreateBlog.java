@@ -17,6 +17,12 @@ public class CreateBlog {
     public CreateBlog() {
     }
 
+    public CreateBlog(final String title, final String username, final String blogContent) {
+        this.title = title;
+        this.username = username;
+        this.blogContent = blogContent;
+    }
+
     public String getUsername() {
         return username;
     }
@@ -29,21 +35,15 @@ public class CreateBlog {
         return blogContent;
     }
 
+    public void setBlogContent(final String blogContent) {
+        this.blogContent = blogContent;
+    }
+
     public String getTitle() {
         return title;
     }
 
     public void setTitle(final String title) {
         this.title = title;
-    }
-
-    public void setBlogContent(final String blogContent) {
-        this.blogContent = blogContent;
-    }
-
-    public CreateBlog(final String title, final String username, final String blogContent) {
-        this.title = title;
-        this.username = username;
-        this.blogContent = blogContent;
     }
 }

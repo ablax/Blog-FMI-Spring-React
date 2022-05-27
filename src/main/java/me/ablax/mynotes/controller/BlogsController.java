@@ -1,8 +1,8 @@
 package me.ablax.mynotes.controller;
 
 import me.ablax.mynotes.entity.Blog;
-import me.ablax.mynotes.model.request.CreateBlog;
 import me.ablax.mynotes.model.model.BlogResponse;
+import me.ablax.mynotes.model.request.CreateBlog;
 import me.ablax.mynotes.service.BlogService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
@@ -37,6 +37,7 @@ public class BlogsController {
         final Blog blog = blogService.findById(bookId);
         return ResponseEntity.ok(BlogResponse.fromBlog(blog));
     }
+
     @DeleteMapping("/{bookId}")
     public ResponseEntity<Void> deleteBlog(@PathVariable("bookId") final Long bookId) {
         blogService.deleteById(bookId);

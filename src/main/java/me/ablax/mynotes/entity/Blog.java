@@ -2,6 +2,7 @@ package me.ablax.mynotes.entity;
 
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -15,14 +16,6 @@ import java.time.LocalDateTime;
 @Entity(name = "blogs")
 public class Blog {
 
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(final String title) {
-        this.title = title;
-    }
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -33,11 +26,39 @@ public class Blog {
     private LocalDateTime createdAt;
     @LastModifiedDate
     private LocalDateTime updatedAt;
-
     public Blog() {
 
     }
+    public Blog(final Long id, final String author, final String title, final String blogContent, final LocalDateTime createdAt, final LocalDateTime updatedAt) {
+        this.id = id;
+        this.author = author;
+        this.title = title;
+        this.blogContent = blogContent;
+        this.createdAt = createdAt;
+        this.updatedAt = updatedAt;
+    }
 
+    public Blog(final String author, final String title, final String blogContent) {
+        this.author = author;
+        this.title = title;
+        this.blogContent = blogContent;
+    }
+
+
+    public Blog(final Long id, final String author, final String title, final String blogContent) {
+        this.id = id;
+        this.author = author;
+        this.title = title;
+        this.blogContent = blogContent;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(final String title) {
+        this.title = title;
+    }
 
     public LocalDateTime getCreatedAt() {
         return createdAt;
@@ -76,29 +97,6 @@ public class Blog {
     }
 
     public void setBlogContent(final String blogContent) {
-        this.blogContent = blogContent;
-    }
-
-
-    public Blog(final Long id, final String author, final String title, final String blogContent, final LocalDateTime createdAt, final LocalDateTime updatedAt) {
-        this.id = id;
-        this.author = author;
-        this.title = title;
-        this.blogContent = blogContent;
-        this.createdAt = createdAt;
-        this.updatedAt = updatedAt;
-    }
-
-    public Blog(final String author, final String title, final String blogContent) {
-        this.author = author;
-        this.title = title;
-        this.blogContent = blogContent;
-    }
-
-    public Blog(final Long id, final String author, final String title, final String blogContent) {
-        this.id = id;
-        this.author = author;
-        this.title = title;
         this.blogContent = blogContent;
     }
 }

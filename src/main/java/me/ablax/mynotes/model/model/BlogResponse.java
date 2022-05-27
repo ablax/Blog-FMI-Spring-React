@@ -6,17 +6,10 @@ import me.ablax.mynotes.entity.Blog;
  * @author Murad Hamza on 27.05.2022 г.
  */
 public class BlogResponse {
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(final Long id) {
-        this.id = id;
-    }
-
-    public static BlogResponse fromBlog(final Blog blog){
-        return new BlogResponse(blog.getId(),blog.getTitle(), blog.getAuthor(), blog.getBlogContent());
-    }
+    private Long id;
+    private String title;
+    private String username;
+    private String blogContent;
 
     public BlogResponse(final Long id, final String title, final String username, final String blogContent) {
         this.id = id;
@@ -24,11 +17,20 @@ public class BlogResponse {
         this.username = username;
         this.blogContent = blogContent;
     }
+    public BlogResponse() {
+    }
 
-    private Long id;
-    private String title;
-    private String username;
-    private String blogContent;
+    public static BlogResponse fromBlog(final Blog blog) {
+        return new BlogResponse(blog.getId(), blog.getTitle(), blog.getAuthor(), blog.getBlogContent());
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(final Long id) {
+        this.id = id;
+    }
 
     public String getTitle() {
         return title;
@@ -53,7 +55,4 @@ public class BlogResponse {
     public void setBlogContent(final String blogContent) {
         this.blogContent = blogContent;
     }
-
-
-    public BlogResponse() {
-    }}
+}
